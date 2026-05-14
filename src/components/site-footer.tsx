@@ -42,8 +42,8 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
   return (
     <footer className="relative mt-auto overflow-x-hidden bg-brand-green pb-0 text-white">
       <FooterWaveDivider />
-      <div className="relative z-[2] mx-auto grid w-[min(1120px,92vw)] max-w-full gap-10 py-14 ps-[max(0px,env(safe-area-inset-left))] pe-[max(0px,env(safe-area-inset-right))] md:grid-cols-[auto_minmax(0,1.35fr)_minmax(0,1fr)] md:items-start md:gap-x-12 md:gap-y-10 md:py-16 lg:gap-x-16">
-        <div className="shrink-0">
+      <div className="relative z-[2] mx-auto grid w-[min(1120px,92vw)] max-w-full gap-10 py-14 text-center ps-[max(0px,env(safe-area-inset-left))] pe-[max(0px,env(safe-area-inset-right))] md:grid-cols-[auto_minmax(0,1.35fr)_minmax(0,1fr)] md:items-start md:gap-x-12 md:gap-y-10 md:py-16 md:text-left lg:gap-x-16">
+        <div className="flex shrink-0 justify-center md:block">
           <Link
             href={siteHref("/")}
             className="inline-block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green"
@@ -62,27 +62,27 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
 
         <div className="min-w-0">
           <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/50">{footer.shortcuts}</p>
-          <div className="mt-4 grid grid-cols-1 gap-x-8 gap-y-1 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-0">
-            <ul className="flex flex-col gap-y-1.5 text-sm text-white/88">
+          <div className="mt-4 grid grid-cols-1 justify-items-center gap-x-8 gap-y-1 sm:grid-cols-2 sm:gap-x-10 sm:gap-y-0 md:justify-items-stretch">
+            <ul className="flex w-full max-w-xs flex-col gap-y-1.5 text-sm text-white/88 sm:max-w-none">
               {genvejeCol1.map((item) => (
                 <li key={item.path}>
                   <Link
                     href={siteHref(item.path)}
                     aria-label={`${nav[item.labelKey]} — underside på Grindsted Vandtårn`}
-                    className="flex min-h-9 max-w-full items-center rounded-sm py-0.5 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green"
+                    className="flex min-h-9 max-w-full items-center justify-center rounded-sm py-0.5 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green md:justify-start"
                   >
                     {nav[item.labelKey]}
                   </Link>
                 </li>
               ))}
             </ul>
-            <ul className="flex flex-col gap-y-1.5 text-sm text-white/88">
+            <ul className="flex w-full max-w-xs flex-col gap-y-1.5 text-sm text-white/88 sm:max-w-none">
               {genvejeCol2.map((item) => (
                 <li key={item.path}>
                   <Link
                     href={siteHref(item.path)}
                     aria-label={`${nav[item.labelKey]} — underside på Grindsted Vandtårn`}
-                    className="flex min-h-9 max-w-full items-center rounded-sm py-0.5 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green"
+                    className="flex min-h-9 max-w-full items-center justify-center rounded-sm py-0.5 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green md:justify-start"
                   >
                     {nav[item.labelKey]}
                   </Link>
@@ -94,17 +94,17 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
 
         <div className="min-w-0">
           <p className="text-[11px] font-medium uppercase tracking-[0.2em] text-white/50">{footer.contact}</p>
-          <ul className="mt-4 flex flex-col gap-3 text-sm">
-            <li>
+          <ul className="mt-4 flex flex-col items-center gap-3 text-sm md:items-start">
+            <li className="w-full max-w-xs md:max-w-none">
               <a
                 href={GOOGLE_MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Åbn adressen Banegårdsvej 32, 7200 Grindsted i Google Maps (åbner i nyt vindue)"
-                className="group inline-flex min-h-9 max-w-prose items-start gap-2.5 py-0.5 text-white/85 transition-colors hover:text-white"
+                className="group mx-auto flex min-h-9 max-w-full flex-row items-start justify-center gap-2.5 py-0.5 text-white/85 transition-colors hover:text-white md:mx-0 md:max-w-prose md:justify-start"
               >
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/70 transition-colors group-hover:text-white" aria-hidden />
-                <span className="leading-snug">
+                <span className="text-balance text-left leading-snug">
                   <span className="font-medium text-white">Grindsted Vandtårn</span>
                   <br />
                   Banegårdsvej 32
@@ -113,22 +113,22 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
                 </span>
               </a>
             </li>
-            <li>
+            <li className="w-full max-w-xs md:max-w-none">
               <a
                 href={MAILTO}
                 aria-label="Send e-mail til paw@3pleuro.com om Grindsted Vandtårn"
-                className="inline-flex min-h-9 items-center gap-2.5 rounded-sm py-0.5 font-medium text-white/95 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green"
+                className="mx-auto flex min-h-9 items-center justify-center gap-2.5 rounded-sm py-0.5 font-medium text-white/95 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green md:mx-0 md:justify-start"
               >
                 <Mail className="h-4 w-4 shrink-0 text-white/70" aria-hidden />
                 paw@3pleuro.com
               </a>
             </li>
-            <li>
+            <li className="w-full max-w-xs md:max-w-none">
               <a
                 href={FACEBOOK_PAGE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-9 items-center gap-2.5 py-0.5 text-white/90 transition-colors hover:text-white"
+                className="mx-auto flex min-h-9 items-center justify-center gap-2.5 py-0.5 text-white/90 transition-colors hover:text-white md:mx-0 md:justify-start"
                 aria-label={footer.facebookAria}
               >
                 <svg className="h-6 w-6 shrink-0 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
