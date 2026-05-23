@@ -49,46 +49,49 @@ export function SiteHeader({ dictionary }: { dictionary: Dictionary }) {
           />
         </Link>
 
-        <div className="hidden min-w-0 flex-1 items-center justify-end gap-2 2xl:gap-3 xl:flex">
-          <nav className="min-w-0 flex-1" aria-label={nav.mainMenu}>
-            <ul className="flex max-w-full flex-nowrap items-center justify-end gap-x-0.5 2xl:gap-x-1">
-              {mainNavItems.map((item) => {
-                const href = siteHref(item.path);
-                const active = isActive(item.path);
-                const label = nav[item.labelKey];
-                return (
-                  <li key={item.path} className="shrink-0">
-                    <Link
-                      href={href}
-                      title={`${label} — underside`}
-                      aria-current={active ? "page" : undefined}
-                      className={cn(
-                        navLinkFocus,
-                        "inline-block whitespace-nowrap rounded-md px-1.5 py-2 text-xs font-medium leading-none tracking-tight transition-colors duration-200 2xl:px-2 2xl:text-sm",
-                        "bg-transparent hover:bg-transparent",
-                        active
-                          ? "text-brand-green underline decoration-brand-green/40 underline-offset-[0.35rem]"
-                          : "text-foreground/90 hover:text-brand-green",
-                      )}
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-          <Link
-            href={bookingHref}
-            aria-label={`${nav.besogOs} — booking, kort og kontakt`}
-            className={cn(
-              besoegOsNavClassName,
-              "focus-visible:ring-2 focus-visible:ring-brand-green/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-            )}
-          >
-            {nav.besogOs}
-          </Link>
-        </div>
+        <nav
+          className="hidden min-w-0 flex-1 items-center justify-center xl:flex"
+          aria-label={nav.mainMenu}
+        >
+          <ul className="flex max-w-full flex-nowrap items-center justify-center gap-x-0.5 2xl:gap-x-1">
+            {mainNavItems.map((item) => {
+              const href = siteHref(item.path);
+              const active = isActive(item.path);
+              const label = nav[item.labelKey];
+              return (
+                <li key={item.path} className="shrink-0">
+                  <Link
+                    href={href}
+                    title={`${label} — underside`}
+                    aria-current={active ? "page" : undefined}
+                    className={cn(
+                      navLinkFocus,
+                      "inline-block whitespace-nowrap rounded-md px-1.5 py-2 text-xs font-medium leading-none tracking-tight transition-colors duration-200 2xl:px-2 2xl:text-sm",
+                      "bg-transparent hover:bg-transparent",
+                      active
+                        ? "text-brand-green underline decoration-brand-green/40 underline-offset-[0.35rem]"
+                        : "text-foreground/90 hover:text-brand-green",
+                    )}
+                  >
+                    {label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <Link
+          href={bookingHref}
+          aria-label={`${nav.besogOs} — booking, kort og kontakt`}
+          className={cn(
+            besoegOsNavClassName,
+            "hidden shrink-0 xl:inline-flex",
+            "focus-visible:ring-2 focus-visible:ring-brand-green/40 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+          )}
+        >
+          {nav.besogOs}
+        </Link>
 
         <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
           <div className="flex shrink-0 items-center gap-2 xl:hidden">
