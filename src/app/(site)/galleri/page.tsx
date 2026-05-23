@@ -24,10 +24,10 @@ export default function GalleriPage() {
     getDictionary().pages.galleri;
 
   return (
-    <main className="bg-white">
+    <main className="bg-background">
       <PageIntroEditorial variant="hero" title="Galleri" subtitle={heroSubtitle} />
 
-      <AnimatedSection className="border-b border-neutral-200/80 bg-white py-14 md:py-20" delay={0.04}>
+      <AnimatedSection className="border-b border-border bg-card py-14 md:py-20" delay={0.04}>
         <div className="mx-auto w-[min(1200px,96vw)]">
           <Prose className="max-w-none">
             <h2 className={sectionHeadingClass}>{h2After}</h2>
@@ -41,7 +41,7 @@ export default function GalleriPage() {
       </AnimatedSection>
 
       <AnimatedSection
-        className="border-b border-neutral-200/80 bg-gradient-to-b from-neutral-50/90 to-white py-14 md:py-20"
+        className="border-b border-border bg-background py-14 md:py-20"
         delay={0.08}
       >
         <div className="mx-auto w-[min(1200px,96vw)]">

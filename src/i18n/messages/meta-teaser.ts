@@ -4,45 +4,45 @@ import type { Locale } from "@/i18n/config";
 export const metaTeaser = {
   da: {
     meta: {
-      siteDefaultTitle: "Grindsted Vandtårn — vartegn siden 1931",
+      siteDefaultTitle: "Grindsted Vandtårn — Grindsteds vartegn siden 1931",
       siteDefaultDescription:
-        "Officiel side for Grindsted Vandtårn: historie, arrangementer, rundvisning, Filterhuset, parken og kontakt i Grindsted ved Billund.",
+        "Grindsted Vandtårn er Grindsteds vartegn siden 1931. Officiel side med historie, arrangementer, rundvisning, Filterhuset, Vandtårnsparken og kontakt i Grindsted ved Billund.",
       homeTitle: "Forside",
       homeDescription:
-        "Grindsted Vandtårn er byens vartegn siden 1931. Se kommende arrangementer, book rundvisning og tagudsigt, og læs om Filterhuset og vandtårnsparken.",
-      bookingTitle: "Besøg & Kontakt",
+        "Grindsted Vandtårn er Grindsteds vartegn siden 1931. Officiel side med historie, arrangementer, rundvisning, Filterhuset, Vandtårnsparken og kontakt i Grindsted ved Billund.",
+      bookingTitle: "Booking og besøg",
       bookingDescription:
-        "Book rundvisning og udsigt fra tårnet, find kort og adresse til Banegårdsvej 32, og skriv til os om selskaber og events ved vandtårnet.",
-      sponsorerTitle: "Sponsorer & støtte",
+        "Book rundvisning og udsigt i Grindsted Vandtårn, find adresse og kort til Banegårdsvej 32, og kontakt os om arrangementer ved Grindsteds vartegn.",
+      sponsorerTitle: "Sponsorer og støtte",
       sponsorerDescription:
-        "Støt Grindsted Vandtårn som sponsor eller donor — læs hvordan du bidrager til bevaring og kultur i Grindsted.",
-      samarbejdeTitle: "Samarbejde & partnere",
+        "Støt Grindsted Vandtårn som sponsor eller donor, og bidrag til bevaring, drift og kultur omkring Grindsteds vartegn i Grindsted.",
+      samarbejdeTitle: "Samarbejde og partnere",
       samarbejdeDescription:
-        "Virksomheder og foreninger kan samarbejde med Grindsted Vandtårn om synlighed, events og fællesskab i byen.",
+        "Virksomheder og foreninger kan samarbejde med Grindsted Vandtårn om events, synlighed og fællesskab ved byens vartegn.",
       arrangementerTitle: "Arrangementer",
       arrangementerDescription:
-        "Se program for koncerter, jul, comedy og fællesskab ved Grindsted Vandtårn og Filterhuset — billetter og datoer.",
-      galleriTitle: "Billedgalleri",
+        "Se kalender for koncerter, jul og fællesskab ved Grindsted Vandtårn og Filterhuset — musik og oplevelser ved Grindsteds vartegn.",
+      galleriTitle: "Galleri",
       galleriDescription:
-        "Fotos fra vandtårnet, Filterhuset, parken og arrangementer — stemning og arkitektur i Grindsted.",
+        "Billeder fra Grindsted Vandtårn, Filterhuset, Vandtårnsparken og arrangementer — før, under og efter renoveringen af vartegnet.",
       ejerenTitle: "Ejeren",
       ejerenDescription:
-        "Mød Paw Kristensen, der har købt og restaureret Grindsted Vandtårn, og hør om visionen for vartegnet.",
+        "Læs om Paw Kristensen, der har købt og restaureret Grindsted Vandtårn, og om visionen for Grindsteds vartegn fremover.",
       filterhusetTitle: "Filterhuset",
       filterhusetDescription:
-        "Historisk filterhus ved tårnet — i dag kulturhus med Kalkrummet, events og mulighed for booking.",
+        "Filterhuset ved Grindsted Vandtårn er et historisk kulturhus med Kalkrummet, events og booking — en del af vartegnet.",
       vandtaarnsparkenTitle: "Vandtårnsparken",
       vandtaarnsparkenDescription:
-        "Grøn park omkring Grindsted Vandtårn og Filterhuset — ophold, stier og ramme om små arrangementer.",
+        "Vandtårnsparken omkranser Grindsted Vandtårn og Filterhuset — grønt byrum, stier og ramme om oplevelser ved vartegnet.",
       vennerTitle: "Vandtårnets Venner",
       vennerDescription:
-        "Foreningen bag frivillige, åbent tårn og formidling af historien om Grindsted Vandtårn og byen.",
-      hvadBrugesTitle: "Hvad bruges tårnet til",
+        "Vandtårnets Venner er foreningen bag frivillige, åbent tårn og historieformidling om Grindsted Vandtårn — Grindsteds vartegn.",
+      hvadBrugesTitle: "Hvad bruges det til",
       hvadBrugesDescription:
-        "Rundvisninger, koncerter, udsigtspunkt og booking af selskaber — sådan bruges Grindsted Vandtårn i dag.",
+        "Rundvisning, koncerter, udsigt fra tårnet og booking af events — sådan bruges Grindsted Vandtårn, Grindsteds vartegn, i dag.",
       oplevelserTitle: "Oplevelser",
       oplevelserDescription:
-        "Vælg emne og dyk ned: samarbejde, ejer, filterhus, park, venner, sponsorer og booking ved vandtårnet.",
+        "Overblik over oplevelser ved Grindsted Vandtårn: samarbejde, ejer, Filterhuset, park, venner, sponsorer og booking.",
     },
     teaser: {
       title: "Udforsk",

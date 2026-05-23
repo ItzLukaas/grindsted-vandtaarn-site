@@ -34,7 +34,8 @@ export async function generateMetadata(): Promise<Metadata> {
     path: "/",
     titleSegment: dict.meta.siteDefaultTitle,
     absoluteTitle: dict.meta.siteDefaultTitle,
-    description: dict.meta.homeDescription,
+    description: dict.meta.siteDefaultDescription,
+    ogSubtitle: "Grindsteds vartegn siden 1931",
   });
 }
 
@@ -94,7 +95,7 @@ function ForedragVideo({ ariaLabel }: { ariaLabel: string }) {
   const src = "/foredrag.mp4";
   return (
     <div className="relative mx-auto w-full max-w-[min(100%,448px)] shrink-0">
-      <div className="overflow-hidden rounded-3xl ring-1 ring-brand-green/12 shadow-[0_18px_48px_-24px_rgba(1,73,75,0.16)]">
+      <div className="media-frame">
         <div className="relative aspect-[10/14] bg-black/20">
           <video
             className="pointer-events-none absolute inset-0 h-full w-full object-cover select-none"
@@ -210,9 +211,10 @@ export default async function HomePage() {
             </div>
           </div>
           <div className="min-w-0">
+            <p className="section-label">Historie</p>
             <h2
               id="vartegn-genfoedt-heading"
-              className="scroll-mt-28 text-balance font-serif text-2xl font-semibold tracking-tight text-brand-green md:text-3xl"
+              className="scroll-mt-28 mt-2 text-2xl font-semibold text-brand-green md:text-3xl"
             >
               {h.vartegnTitle}
             </h2>
@@ -248,10 +250,8 @@ export default async function HomePage() {
             <ForedragVideo ariaLabel={h.foredragVideoAria} />
           </div>
           <div className="min-w-0">
-            <h2
-              id="foredrag-heading"
-              className="text-balance font-serif text-2xl font-semibold tracking-tight text-brand-green md:text-3xl"
-            >
+            <p className="section-label">Foredrag</p>
+            <h2 id="foredrag-heading" className="mt-2 text-2xl font-semibold text-brand-green md:text-3xl">
               {h.foredragTitle}
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">{h.foredragP1}</p>
@@ -285,9 +285,8 @@ export default async function HomePage() {
 
       <section className="bg-background py-14 md:py-20">
         <div className="mx-auto w-[min(1120px,92vw)]">
-          <h2 className="text-balance font-serif text-2xl font-semibold tracking-tight text-brand-green md:text-3xl">
-            {h.contactTitle}
-          </h2>
+          <p className="section-label">Kontakt</p>
+          <h2 className="mt-2 text-2xl font-semibold text-brand-green md:text-3xl">{h.contactTitle}</h2>
           <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-muted-foreground md:text-[0.95rem]">
             {h.contactLead}
           </p>

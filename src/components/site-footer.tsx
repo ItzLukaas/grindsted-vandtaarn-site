@@ -41,6 +41,10 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
 
   return (
     <footer className="relative mt-auto overflow-x-hidden bg-brand-green pb-0 text-white">
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,rgba(255,255,255,0.12),transparent_55%)]"
+        aria-hidden
+      />
       <FooterWaveDivider />
       <div className="relative z-[2] mx-auto grid w-[min(1120px,92vw)] max-w-full gap-10 py-14 text-center ps-[max(0px,env(safe-area-inset-left))] pe-[max(0px,env(safe-area-inset-right))] md:grid-cols-[auto_minmax(0,1.35fr)_minmax(0,1fr)] md:items-start md:gap-x-12 md:gap-y-10 md:py-16 md:text-left lg:gap-x-16">
         <div className="flex shrink-0 justify-center md:block">
@@ -69,7 +73,7 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
                   <Link
                     href={siteHref(item.path)}
                     aria-label={`${nav[item.labelKey]} — underside på Grindsted Vandtårn`}
-                    className="flex min-h-9 max-w-full items-center justify-center rounded-sm py-0.5 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green md:justify-start"
+                    className="flex min-h-9 max-w-full items-center justify-center rounded-md py-0.5 transition-[color,transform] duration-200 hover:translate-x-0.5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green motion-reduce:hover:translate-x-0 md:justify-start"
                   >
                     {nav[item.labelKey]}
                   </Link>
@@ -82,7 +86,7 @@ export function SiteFooter({ dictionary }: { dictionary: Dictionary }) {
                   <Link
                     href={siteHref(item.path)}
                     aria-label={`${nav[item.labelKey]} — underside på Grindsted Vandtårn`}
-                    className="flex min-h-9 max-w-full items-center justify-center rounded-sm py-0.5 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green md:justify-start"
+                    className="flex min-h-9 max-w-full items-center justify-center rounded-md py-0.5 transition-[color,transform] duration-200 hover:translate-x-0.5 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2 focus-visible:ring-offset-brand-green motion-reduce:hover:translate-x-0 md:justify-start"
                   >
                     {nav[item.labelKey]}
                   </Link>

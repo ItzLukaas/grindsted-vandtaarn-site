@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Grindsted Vandtårn",
     short_name: "Vandtårnet",
     description:
-      "Vartegn siden 1931 — officiel side med historie, arrangementer, rundvisning, Filterhuset og parken i Grindsted.",
+      "Grindsted Vandtårn — Grindsteds vartegn siden 1931. Historie, arrangementer, rundvisning, Filterhuset og Vandtårnsparken.",
     start_url: "/",
     display: "browser",
     background_color: "#f7f7f7",

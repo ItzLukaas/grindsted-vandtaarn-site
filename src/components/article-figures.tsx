@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 
 function Figure({ image, sizes }: { image: SiteImage; sizes: string }) {
   return (
-    <figure className="overflow-hidden rounded-xl border border-black/[0.07] bg-neutral-100/80 shadow-sm">
+    <figure className="overflow-hidden rounded-xl border border-border bg-muted shadow-[0_8px_28px_-20px_rgba(1,73,75,0.12)]">
       <div className="relative aspect-[16/10] w-full">
         <Image
           src={image.src}

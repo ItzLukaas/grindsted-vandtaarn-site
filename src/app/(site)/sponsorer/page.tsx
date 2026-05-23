@@ -33,7 +33,7 @@ export default async function SponsorerPage() {
         <Prose>
           <div className="space-y-4">
             <h2 className="!mt-0 font-serif text-xl font-semibold text-brand-green md:text-2xl">{s.h2}</h2>
-            <figure className="relative ml-0 h-12 w-[min(11rem,52%)] max-w-[220px] shrink-0 rounded-2xl border border-border/80 bg-muted/25 px-4 py-2.5 md:h-[4.25rem] md:w-[12rem] md:px-5 md:py-3">
+            <figure className="relative ml-0 h-12 w-[min(11rem,52%)] max-w-[220px] shrink-0 md:h-[4.25rem] md:w-[12rem]">
               <Image
                 src={sponsorer3pgLogo.src}
                 alt={sponsorer3pgLogo.alt}

@@ -29,7 +29,7 @@ type FunktionCopy = {
 function FunktionImageMedia({ image }: { image: SiteImage }) {
   return (
     <div className="relative mx-auto w-full max-w-[min(100%,448px)] shrink-0">
-      <div className="overflow-hidden rounded-3xl ring-1 ring-brand-green/12 shadow-[0_18px_48px_-24px_rgba(1,73,75,0.15)]">
+      <div className="overflow-hidden rounded-3xl">
         <div className="relative aspect-[10/14] bg-black/20">
           <Image
             src={image.src}
@@ -60,9 +60,10 @@ export function HomeVandtaarnetsFunktionIDagSection({
     >
       <div className="mx-auto grid w-[min(1120px,92vw)] gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(260px,0.9fr)] md:items-center md:gap-14">
         <div className="min-w-0">
+          <p className="section-label">I dag</p>
           <h2
             id="vandtaarn-funktion-heading"
-            className="text-balance font-serif text-lg font-semibold leading-tight tracking-tight text-brand-green sm:text-2xl"
+            className="mt-2 text-2xl font-semibold text-brand-green md:text-3xl"
           >
             {copy.funktionTitle}
           </h2>

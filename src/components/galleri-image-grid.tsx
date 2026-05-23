@@ -55,7 +55,7 @@ export function GalleriImageGrid({ images, lightboxCategoryTitle, className }: G
           <button
             key={image.src}
             type="button"
-            className="group relative block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-black/[0.08] bg-neutral-100/40 text-left shadow-[0_4px_24px_-8px_rgba(0,0,0,0.12)] ring-transparent transition hover:border-black/12 hover:shadow-[0_12px_40px_-12px_rgba(0,0,0,0.18)] hover:ring-2 hover:ring-brand-green/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+            className="group relative block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-border bg-muted/50 text-left shadow-[0_8px_28px_-18px_rgba(1,73,75,0.12)] ring-transparent transition-[border-color,box-shadow,transform] hover:border-brand-green/20 hover:shadow-[0_14px_40px_-16px_rgba(1,73,75,0.18)] hover:ring-2 hover:ring-brand-green/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             onClick={() => openAt(i)}
             aria-label={`Åbn større visning — ${lightboxCategoryTitle}: ${image.alt}`}
           >

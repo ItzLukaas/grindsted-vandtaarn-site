@@ -38,12 +38,12 @@ export default function OplevelserPage() {
               <Link
                 href={item.href}
                 aria-label={`${item.title}: ${item.text}`}
-                className="group flex min-h-[5.75rem] touch-manipulation flex-col rounded-2xl border border-black/[0.06] bg-white px-5 py-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition active:bg-neutral-50/80 hover:border-black/10 hover:shadow-[0_4px_20px_rgba(0,0,0,0.06)]"
+                className="group flex min-h-[5.75rem] touch-manipulation flex-col py-2 transition-colors hover:text-brand-green"
               >
-                <span className="font-serif text-lg font-semibold text-brand-green group-hover:text-brand-green-soft">
+                <span className="text-lg font-semibold text-brand-green transition-colors group-hover:text-brand-green-soft">
                   {item.title}
                 </span>
-                <span className="mt-1.5 text-sm text-neutral-600">{item.text}</span>
+                <span className="mt-1.5 text-sm text-muted-foreground">{item.text}</span>
                 <span className="mt-4 text-xs font-medium text-primary opacity-90">Åbn side</span>
               </Link>
             </li>

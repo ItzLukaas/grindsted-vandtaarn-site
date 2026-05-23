@@ -26,17 +26,15 @@ function SplitMediaImage({
       )}
     >
       <div className={cn("relative mx-auto w-full shrink-0", maxW)}>
-        <div className="overflow-hidden rounded-3xl ring-1 ring-brand-green/12 shadow-[0_18px_48px_-24px_rgba(1,73,75,0.15)]">
-          <div className="relative aspect-[10/14] bg-black/20">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              title={image.alt}
-              fill
-              className="object-cover"
-              sizes={sizesAttr}
-            />
-          </div>
+        <div className="relative aspect-[10/14] overflow-hidden rounded-3xl bg-black/20">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            title={image.alt}
+            fill
+            className="object-cover"
+            sizes={sizesAttr}
+          />
         </div>
       </div>
     </div>

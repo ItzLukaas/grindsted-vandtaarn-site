@@ -1,13 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Arvo, DM_Sans, Geist } from "next/font/google";
+import { Arvo, DM_Sans } from "next/font/google";
 import Script from "next/script";
 import { SiteJsonLd } from "@/components/site-json-ld";
-import { DEFAULT_OG_IMAGE_PATH } from "@/lib/page-metadata";
+import { brandedOgImageUrl } from "@/lib/page-metadata";
+import {
+  SEO_DEFAULT_TAGLINE,
+  SEO_KEYWORDS,
+  SEO_SITE_NAME,
+} from "@/lib/seo-brand";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
-const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 const dmSans = DM_Sans({
   variable: "--font-body",
@@ -33,32 +36,23 @@ export const viewport: Viewport = {
   ],
 };
 
+const ROOT_DESCRIPTION =
+  "Grindsted Vandtårn er Grindsteds vartegn siden 1931. Officiel side med historie, arrangementer, rundvisning, Filterhuset, Vandtårnsparken og kontakt i Grindsted ved Billund.";
+
+const ROOT_OG_IMAGE = brandedOgImageUrl(SEO_SITE_NAME, SEO_DEFAULT_TAGLINE);
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Grindsted Vandtårn — vartegn siden 1931",
-    template: "%s | Grindsted Vandtårn",
+    default: `Grindsted Vandtårn — ${SEO_DEFAULT_TAGLINE}`,
+    template: `%s | ${SEO_SITE_NAME}`,
   },
-  description:
-    "Officiel side for Grindsted Vandtårn: historie, arrangementer, rundvisning, Filterhuset, parken og kontakt i Grindsted ved Billund.",
-  applicationName: "Grindsted Vandtårn",
-  keywords: [
-    "Grindsted Vandtårn",
-    "vandtårn",
-    "Grindsted",
-    "Billund Kommune",
-    "vartegn",
-    "rundvisning",
-    "arrangementer",
-    "Filterhuset",
-    "Vandtårnsparken",
-    "Vandtårnets Venner",
-    "kultur",
-    "historie",
-  ],
-  authors: [{ name: "Grindsted Vandtårn" }],
-  creator: "Grindsted Vandtårn",
-  publisher: "Grindsted Vandtårn",
+  description: ROOT_DESCRIPTION,
+  applicationName: SEO_SITE_NAME,
+  keywords: [...SEO_KEYWORDS],
+  authors: [{ name: SEO_SITE_NAME }],
+  creator: SEO_SITE_NAME,
+  publisher: SEO_SITE_NAME,
   formatDetection: {
     email: false,
     address: false,
@@ -78,34 +72,38 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "da_DK",
-    siteName: "Grindsted Vandtårn",
+    siteName: SEO_SITE_NAME,
     url: siteUrl,
-    title: "Grindsted Vandtårn — vartegn siden 1931",
-    description:
-      "Officiel side for Grindsted Vandtårn: historie, arrangementer, rundvisning, Filterhuset, parken og kontakt i Grindsted ved Billund.",
+    title: `Grindsted Vandtårn — ${SEO_DEFAULT_TAGLINE}`,
+    description: ROOT_DESCRIPTION,
     images: [
       {
-        url: DEFAULT_OG_IMAGE_PATH,
-        alt: "Grindsted Vandtårn i solnedgang set fra luften",
+        url: ROOT_OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: `${SEO_SITE_NAME} — ${SEO_DEFAULT_TAGLINE}`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Grindsted Vandtårn — vartegn siden 1931",
-    description:
-      "Officiel side for Grindsted Vandtårn: historie, arrangementer, rundvisning, Filterhuset, parken og kontakt i Grindsted ved Billund.",
+    title: `Grindsted Vandtårn — ${SEO_DEFAULT_TAGLINE}`,
+    description: ROOT_DESCRIPTION,
     images: [
       {
-        url: DEFAULT_OG_IMAGE_PATH,
-        alt: "Grindsted Vandtårn i solnedgang set fra luften",
+        url: ROOT_OG_IMAGE,
+        alt: `${SEO_SITE_NAME} — ${SEO_DEFAULT_TAGLINE}`,
       },
     ],
   },
   appleWebApp: {
     capable: true,
-    title: "Grindsted Vandtårn",
+    title: SEO_SITE_NAME,
     statusBarStyle: "black-translucent",
+  },
+  other: {
+    "theme-color": "#01494b",
+    "msapplication-TileColor": "#01494b",
   },
   robots: {
     index: true,
@@ -126,7 +124,7 @@ export default function RootLayout({
     <html
       lang="da"
       suppressHydrationWarning
-      className={cn("h-full", "antialiased", dmSans.variable, arvo.variable, "font-sans", geist.variable)}
+      className={cn("h-full", "antialiased", dmSans.variable, arvo.variable, "font-sans")}
     >
       <head>
         <Script

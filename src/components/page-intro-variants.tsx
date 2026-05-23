@@ -17,20 +17,20 @@ export function PageIntroSplit({
   priority?: boolean;
 }) {
   return (
-    <section className="border-b border-black/[0.06]">
+    <section className="border-b border-border bg-card">
       <div className="mx-auto grid w-[min(1120px,92vw)] gap-10 py-12 md:gap-14 md:py-16 lg:grid-cols-[1fr_1.05fr] lg:items-center">
         <div className={reverse ? "lg:order-2" : undefined}>
-          <h1 className="text-balance font-serif text-3xl font-semibold tracking-tight text-brand-green md:text-4xl lg:text-[2.4rem]">
+          <h1 className="text-3xl font-semibold text-brand-green md:text-4xl lg:text-[2.4rem]">
             {title}
           </h1>
           {subtitle ? (
-            <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-neutral-600 md:text-lg">
+            <p className="mt-4 max-w-[52ch] text-base leading-relaxed text-muted-foreground md:text-lg">
               {subtitle}
             </p>
           ) : null}
         </div>
         <div
-          className={`relative min-h-[240px] overflow-hidden rounded-[2rem] border border-black/[0.06] bg-neutral-200 shadow-[0_12px_40px_-16px_rgba(0,0,0,0.18)] sm:min-h-[300px] lg:min-h-[min(52vh,380px)] ${
+          className={`media-frame relative min-h-[240px] bg-muted sm:min-h-[300px] lg:min-h-[min(52vh,380px)] ${
             reverse ? "lg:order-1" : ""
           }`}
         >
@@ -89,17 +89,22 @@ export function PageIntroEditorial({
   }
 
   return (
-    <section className="relative overflow-hidden border-b border-black/[0.06]">
+    <section className="relative overflow-hidden border-b border-border bg-background">
       <div
-        className="pointer-events-none absolute -right-24 top-0 h-64 w-64 rounded-full bg-brand-mist/80 blur-3xl"
+        className="pointer-events-none absolute -right-24 top-0 h-64 w-64 rounded-full bg-brand-sage/10 blur-3xl"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,color-mix(in_oklab,var(--brand-green)_4%,transparent)_0%,transparent_42%)]"
         aria-hidden
       />
       <div className="relative mx-auto w-[min(900px,92vw)] py-14 md:py-20">
-        <h1 className="max-w-[18ch] text-balance font-serif text-[clamp(1.5rem,4vw+0.85rem,2.35rem)] font-semibold leading-[1.08] tracking-tight text-brand-green md:text-5xl md:leading-[1.05]">
+        <p className="section-label">Grindsted Vandtårn</p>
+        <h1 className="mt-3 max-w-[18ch] text-[clamp(1.5rem,4vw+0.85rem,2.35rem)] font-semibold leading-[1.08] text-brand-green md:text-5xl md:leading-[1.05]">
           {title}
         </h1>
         {subtitle ? (
-          <p className="mt-6 max-w-[52ch] border-l-2 border-brand-sage/50 pl-5 text-base leading-relaxed text-neutral-600 md:text-lg">
+          <p className="mt-6 max-w-[52ch] text-base leading-relaxed text-muted-foreground md:text-lg">
             {subtitle}
           </p>
         ) : null}
@@ -118,10 +123,10 @@ export function PageIntroTitleBar({
   subtitle?: string;
 }) {
   return (
-    <section className="border-b border-black/[0.06] bg-white">
+    <section className="border-b border-border bg-card">
       <div className="mx-auto w-[min(720px,92vw)] py-10 md:py-14">
-        <h1 className="font-serif text-3xl font-semibold tracking-tight text-brand-green md:text-4xl">{title}</h1>
-        {subtitle ? <p className="mt-3 text-base text-neutral-600 md:text-lg">{subtitle}</p> : null}
+        <h1 className="text-3xl font-semibold text-brand-green md:text-4xl">{title}</h1>
+        {subtitle ? <p className="mt-3 text-base text-muted-foreground md:text-lg">{subtitle}</p> : null}
       </div>
     </section>
   );
@@ -136,7 +141,7 @@ export function PageIntroSolidBand({
   subtitle?: string;
 }) {
   return (
-    <section className="border-b border-black/[0.06] py-8 md:py-10">
+    <section className="border-b border-border bg-background py-8 md:py-10">
       <div className="mx-auto w-[min(960px,92vw)] overflow-hidden rounded-3xl bg-brand-green px-8 py-10 text-white shadow-[0_16px_48px_-20px_rgba(1,73,75,0.45)] md:px-12 md:py-12">
         <h1 className="font-serif text-3xl font-semibold tracking-tight md:text-4xl">
           {title}
@@ -156,13 +161,13 @@ export function PageIntroAccentCard({
   subtitle?: string;
 }) {
   return (
-    <section className="border-b border-black/[0.06] bg-neutral-100/50 py-10 md:py-14">
+    <section className="border-b border-border bg-background py-10 md:py-14">
       <div className="mx-auto w-[min(880px,92vw)]">
-        <div className="relative overflow-hidden rounded-3xl border border-black/[0.06] bg-white p-8 shadow-[0_8px_30px_rgba(0,0,0,0.05)] md:p-10">
-          <div className="absolute left-0 top-0 h-full w-1.5 bg-primary/90" aria-hidden />
-          <h1 className="pl-4 font-serif text-3xl font-semibold tracking-tight text-brand-green md:text-4xl">{title}</h1>
+        <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 shadow-[0_12px_40px_-24px_rgba(1,73,75,0.12)] md:p-10">
+          <div className="absolute left-0 top-0 h-full w-1.5 bg-brand-green" aria-hidden />
+          <h1 className="pl-4 text-3xl font-semibold text-brand-green md:text-4xl">{title}</h1>
           {subtitle ? (
-            <p className="mt-4 max-w-[56ch] pl-4 text-base leading-relaxed text-neutral-600 md:text-lg">{subtitle}</p>
+            <p className="mt-4 max-w-[56ch] pl-4 text-base leading-relaxed text-muted-foreground md:text-lg">{subtitle}</p>
           ) : null}
         </div>
       </div>

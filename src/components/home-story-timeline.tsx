@@ -52,7 +52,7 @@ function TimelineCard({
     <article className={cn("w-full max-w-lg py-0.5 sm:py-0", alignEnd && "md:ml-auto")}>
       <div
         className={cn(
-          "rounded-2xl bg-brand-mist p-4 shadow-[0_8px_28px_-18px_rgba(1,73,75,0.1)] ring-1 ring-brand-green/15 sm:rounded-[1.35rem] sm:p-5",
+          "rounded-2xl bg-card p-4 shadow-[0_10px_32px_-20px_rgba(1,73,75,0.14)] ring-1 ring-brand-green/12 sm:rounded-[1.35rem] sm:p-5",
           alignEnd && "md:text-right",
         )}
       >
@@ -160,9 +160,10 @@ export function HomeStoryTimeline({
       aria-labelledby="story-timeline-heading"
     >
       <div className="mx-auto w-[min(1120px,92vw)] pt-12 text-center md:pt-16">
+        <p className="section-label">Tidslinje</p>
         <h2
           id="story-timeline-heading"
-          className="text-balance font-serif text-3xl font-semibold tracking-tight text-brand-green sm:text-4xl md:text-[2.35rem]"
+          className="mt-3 text-3xl font-semibold text-brand-green sm:text-4xl md:text-[2.35rem]"
         >
           {title}
         </h2>

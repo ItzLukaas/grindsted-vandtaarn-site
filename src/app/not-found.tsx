@@ -18,7 +18,7 @@ export const metadata: Metadata = buildPageMetadata({
   path: "/",
   titleSegment: "Siden findes ikke",
   description:
-    "Siden findes ikke på Grindsted Vandtårns hjemmeside. Brug menuen eller gå til forsiden for at finde det, du leder efter.",
+    "Siden findes ikke på Grindsted Vandtårns officielle hjemmeside. Brug menuen eller gå til forsiden for at finde Grindsteds vartegn.",
   noIndex: true,
   omitCanonical: true,
 });

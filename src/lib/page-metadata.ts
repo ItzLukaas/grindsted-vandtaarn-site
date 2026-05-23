@@ -1,13 +1,25 @@
 import type { Metadata } from "next";
+import { SEO_DEFAULT_TAGLINE, SEO_KEYWORDS, SEO_SITE_NAME, formatSeoTitle } from "@/lib/seo-brand";
 import { getSiteUrl } from "@/lib/site-url";
 
-/** Standard delings- og OG-billede (findes i `public/`). */
+/** Fallback-foto til sitemap og JSON-LD (findes i `public/` ved deploy). */
 export const DEFAULT_OG_IMAGE_PATH = "/galleri1.jpg";
+
+const OG_IMAGE_SIZE = { width: 1200, height: 630 } as const;
 
 function absoluteAssetUrl(path: string): string {
   const base = getSiteUrl();
   const p = path.startsWith("/") ? path : `/${path}`;
   return `${base}${p}`;
+}
+
+/** Brandet OG-billede med sidetitel og undertitel i teal-gradient. */
+export function brandedOgImageUrl(title: string, subtitle?: string): string {
+  const base = getSiteUrl();
+  const params = new URLSearchParams({ title });
+  const sub = subtitle?.trim();
+  if (sub) params.set("subtitle", sub);
+  return `${base}/api/og?${params.toString()}`;
 }
 
 export type BuildPageMetadataInput = {
@@ -16,9 +28,11 @@ export type BuildPageMetadataInput = {
   description: string;
   /** Bruges i `<title>` med layout-skabelonen `%s | Grindsted Vandtårn`. */
   titleSegment: string;
-  /** Sæt for forsiden så titlen ikke bliver dobbelt med skabelonen. */
+  /** Sæt for forsiden, så titlen ikke bliver dobbelt med skabelonen. */
   absoluteTitle?: string;
-  /** Relativ sti til OG/Twitter-billede (fx `/sponsorer.jpg`). */
+  /** Kort linje på brandet OG-billede (standard: SEO_DEFAULT_TAGLINE). */
+  ogSubtitle?: string;
+  /** Statisk foto i stedet for genereret brand-OG (fx galleri). */
   ogImagePath?: string;
   /** Sæt true for fejlside, takkesider mv. */
   noIndex?: boolean;
@@ -28,12 +42,14 @@ export type BuildPageMetadataInput = {
 
 /**
  * Ensartet SEO-metadata (canonical, Open Graph, Twitter) på tværs af sider.
+ * Titler i SERP: «Side | Grindsted Vandtårn» — forsiden med absolut titel.
  */
 export function buildPageMetadata({
   path,
   description,
   titleSegment,
   absoluteTitle,
+  ogSubtitle,
   ogImagePath,
   noIndex,
   omitCanonical,
@@ -41,33 +57,49 @@ export function buildPageMetadata({
   const base = getSiteUrl();
   const normalizedPath = path === "" ? "/" : path.startsWith("/") ? path : `/${path}`;
   const canonicalUrl = normalizedPath === "/" ? base : `${base}${normalizedPath}`;
-  const ogImage = absoluteAssetUrl(ogImagePath ?? DEFAULT_OG_IMAGE_PATH);
+
+  const displayTitle = absoluteTitle ?? formatSeoTitle(titleSegment);
+  const ogTitleForImage = absoluteTitle ?? titleSegment;
+  const ogImage = ogImagePath
+    ? absoluteAssetUrl(ogImagePath)
+    : brandedOgImageUrl(ogTitleForImage, ogSubtitle ?? SEO_DEFAULT_TAGLINE);
 
   const title: Metadata["title"] = absoluteTitle
     ? { absolute: absoluteTitle }
     : titleSegment;
 
+  const ogImages = [
+    {
+      url: ogImage,
+      width: OG_IMAGE_SIZE.width,
+      height: OG_IMAGE_SIZE.height,
+      alt: `${ogTitleForImage} — ${SEO_SITE_NAME}, ${SEO_DEFAULT_TAGLINE}`,
+      type: ogImagePath ? undefined : ("image/png" as const),
+    },
+  ];
+
   return {
     title,
     description,
+    keywords: [...SEO_KEYWORDS],
     ...(omitCanonical ? {} : { alternates: { canonical: canonicalUrl } }),
     openGraph: {
       type: "website",
       locale: "da_DK",
       ...(omitCanonical ? {} : { url: canonicalUrl }),
-      siteName: "Grindsted Vandtårn",
-      title: absoluteTitle ?? titleSegment,
+      siteName: SEO_SITE_NAME,
+      title: displayTitle,
       description,
-      images: [{ url: ogImage, alt: "Grindsted Vandtårn i solnedgang set fra luften" }],
+      images: ogImages,
     },
     twitter: {
       card: "summary_large_image",
-      title: absoluteTitle ?? titleSegment,
+      title: displayTitle,
       description,
-      images: [{ url: ogImage, alt: "Grindsted Vandtårn i solnedgang set fra luften" }],
+      images: ogImages,
     },
     robots: noIndex
       ? { index: false, follow: true, googleBot: { index: false, follow: true } }
-      : { index: true, follow: true },
+      : { index: true, follow: true, googleBot: { index: true, follow: true } },
   };
 }

@@ -33,7 +33,7 @@ export default async function HvadBrugesDetTilPage() {
             {experienceItems.map((item) => (
               <li
                 key={item.id}
-                className="flex h-[52px] w-[52px] items-center justify-center rounded-2xl border border-black/[0.06] bg-white text-brand-green shadow-sm"
+                className="flex h-[52px] w-[52px] items-center justify-center text-brand-green"
                 title={dict.experiences[item.id].title}
               >
                 <item.icon className="h-6 w-6 shrink-0" aria-hidden />
@@ -43,7 +43,7 @@ export default async function HvadBrugesDetTilPage() {
         }
       />
       <div className="mx-auto w-[min(960px,92vw)] py-12 md:py-16">
-        <p className="max-w-[75ch] text-base leading-relaxed text-neutral-700 md:text-lg">{p.lead}</p>
+        <p className="max-w-[75ch] text-base leading-relaxed text-muted-foreground md:text-lg">{p.lead}</p>
         <div className="mx-auto max-w-[720px]">
           <ArticleFigures images={pickImages([1])} />
         </div>
@@ -51,19 +51,19 @@ export default async function HvadBrugesDetTilPage() {
           {experienceItems.map((item) => (
             <li
               key={item.id}
-              className="rounded-2xl border border-black/[0.06] bg-white p-5 shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+              className="rounded-2xl border border-border bg-card p-5 shadow-[0_8px_28px_-20px_rgba(1,73,75,0.12)] transition-shadow hover:shadow-[0_14px_36px_-18px_rgba(1,73,75,0.16)]"
             >
               <item.icon className="h-6 w-6 text-brand-sage" aria-hidden />
-              <h2 className="mt-3 font-serif text-lg font-semibold text-brand-green">
+              <h2 className="mt-3 text-lg font-semibold text-brand-green">
                 {dict.experiences[item.id].title}
               </h2>
-              <p className="mt-2 text-sm leading-relaxed text-neutral-600 md:text-[15px]">
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground md:text-[15px]">
                 {dict.experiences[item.id].text}
               </p>
             </li>
           ))}
         </ul>
-        <p className="mt-10 text-sm text-neutral-600">
+        <p className="mt-10 text-sm text-muted-foreground">
           {p.footerPrefix}
           <Link href={bookingHref} className="font-medium text-primary underline-offset-2 hover:underline">
             {p.footerLinkLabel}

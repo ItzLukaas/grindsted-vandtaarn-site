@@ -170,6 +170,14 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@utility section-label {
+  @apply text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground;
+}
+
+@utility media-frame {
+  @apply overflow-hidden rounded-3xl ring-1 ring-brand-green/12 shadow-[0_18px_48px_-24px_rgba(1,73,75,0.16)];
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -179,11 +187,21 @@
     overflow-x: clip;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    scroll-padding-top: 5.5rem;
   }
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body), system-ui, sans-serif;
     overflow-x: clip;
     -webkit-tap-highlight-color: color-mix(in oklab, var(--brand-green) 18%, transparent);
+  }
+  ::selection {
+    background: color-mix(in oklab, var(--brand-green) 22%, white);
+    color: var(--foreground);
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-serif tracking-tight text-balance;
   }
 }

@@ -25,10 +25,8 @@ export function HomeMusikVedVandtaarnetPraesentererSection({ copy }: { copy: Mus
     <AnimatedSection className="bg-background py-14 md:py-20" delay={0.04}>
       <div className="mx-auto grid w-[min(1120px,92vw)] gap-10 md:grid-cols-[minmax(0,1fr)_minmax(280px,1.12fr)] md:items-center md:gap-12 lg:gap-14">
         <div className="min-w-0 max-w-prose">
-          <h2
-            id="musik-praesenterer-forside"
-            className="text-balance font-serif text-2xl font-semibold tracking-tight text-brand-green md:text-3xl"
-          >
+          <p className="section-label">Arrangementer</p>
+          <h2 id="musik-praesenterer-forside" className="mt-2 text-2xl font-semibold text-brand-green md:text-3xl">
             {copy.musikHomeTitle}
           </h2>
           <div className="mt-5 space-y-5 text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">
