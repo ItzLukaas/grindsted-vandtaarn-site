@@ -1,4 +1,4 @@
-import { SEO_DEFAULT_TAGLINE, SEO_SITE_NAME } from "@/lib/seo-brand";
+import { SEO_SITE_NAME } from "@/lib/seo-brand";
 import { SEO_SITELINK_ENTRIES } from "@/lib/seo-sitelinks";
 import { DEFAULT_OG_IMAGE_PATH } from "@/lib/page-metadata";
 import { FACEBOOK_PAGE_URL } from "@/lib/site-constants";
@@ -13,8 +13,7 @@ const DEFAULT_DESCRIPTION =
  */
 export function SiteJsonLd() {
   const url = getSiteUrl();
-  const heroImage = `${url}${DEFAULT_OG_IMAGE_PATH}`;
-  const brandedOg = `${url}/api/og?title=${encodeURIComponent(SEO_SITE_NAME)}&subtitle=${encodeURIComponent(SEO_DEFAULT_TAGLINE)}`;
+  const ogImage = `${url}${DEFAULT_OG_IMAGE_PATH}`;
 
   const sitelinkList = {
     "@type": "ItemList",
@@ -50,7 +49,7 @@ export function SiteJsonLd() {
         description: DEFAULT_DESCRIPTION,
         inLanguage: "da-DK",
         publisher: { "@id": `${url}/#organization` },
-        image: brandedOg,
+        image: ogImage,
       },
       {
         "@type": "Organization",
@@ -58,7 +57,7 @@ export function SiteJsonLd() {
         name: SEO_SITE_NAME,
         url,
         logo: `${url}/logo-brand.png`,
-        image: [brandedOg, heroImage],
+        image: ogImage,
         sameAs: [FACEBOOK_PAGE_URL],
         address: {
           "@type": "PostalAddress",
@@ -75,7 +74,7 @@ export function SiteJsonLd() {
         alternateName: "Grindsteds vartegn",
         description: DEFAULT_DESCRIPTION,
         url,
-        image: [brandedOg, heroImage],
+        image: ogImage,
         publicAccess: true,
         isAccessibleForFree: false,
         address: {

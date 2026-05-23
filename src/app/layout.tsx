@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Arvo, DM_Sans } from "next/font/google";
 import Script from "next/script";
 import { SiteJsonLd } from "@/components/site-json-ld";
-import { brandedOgImageUrl } from "@/lib/page-metadata";
+import { DEFAULT_OG_IMAGE_PATH } from "@/lib/page-metadata";
 import {
   SEO_DEFAULT_TAGLINE,
   SEO_KEYWORDS,
@@ -39,7 +39,7 @@ export const viewport: Viewport = {
 const ROOT_DESCRIPTION =
   "Grindsted Vandtårn er Grindsteds vartegn siden 1931. Officiel side med historie, arrangementer, rundvisning, Filterhuset, Vandtårnsparken og kontakt i Grindsted ved Billund.";
 
-const ROOT_OG_IMAGE = brandedOgImageUrl(SEO_SITE_NAME, SEO_DEFAULT_TAGLINE);
+const ROOT_OG_IMAGE = DEFAULT_OG_IMAGE_PATH;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
         url: ROOT_OG_IMAGE,
         width: 1200,
         height: 630,
-        alt: `${SEO_SITE_NAME} — ${SEO_DEFAULT_TAGLINE}`,
+        alt: `${SEO_SITE_NAME} — luftfoto ved solnedgang`,
       },
     ],
   },
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
     images: [
       {
         url: ROOT_OG_IMAGE,
-        alt: `${SEO_SITE_NAME} — ${SEO_DEFAULT_TAGLINE}`,
+        alt: `${SEO_SITE_NAME} — luftfoto ved solnedgang`,
       },
     ],
   },

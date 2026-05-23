@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { SEO_DEFAULT_TAGLINE, SEO_KEYWORDS, SEO_SITE_NAME, formatSeoTitle } from "@/lib/seo-brand";
 import { getSiteUrl } from "@/lib/site-url";
 
-/** Fallback-foto til sitemap og JSON-LD (findes i `public/` ved deploy). */
-export const DEFAULT_OG_IMAGE_PATH = "/galleri1.jpg";
+/** Standardfoto til Open Graph, Twitter og JSON-LD (`public/galleri-sunset-aerial.png`). */
+export const DEFAULT_OG_IMAGE_PATH = "/galleri-sunset-aerial.png";
 
 const OG_IMAGE_SIZE = { width: 1200, height: 630 } as const;
 
@@ -60,9 +60,8 @@ export function buildPageMetadata({
 
   const displayTitle = absoluteTitle ?? formatSeoTitle(titleSegment);
   const ogTitleForImage = absoluteTitle ?? titleSegment;
-  const ogImage = ogImagePath
-    ? absoluteAssetUrl(ogImagePath)
-    : brandedOgImageUrl(ogTitleForImage, ogSubtitle ?? SEO_DEFAULT_TAGLINE);
+  const staticOgPath = ogImagePath ?? DEFAULT_OG_IMAGE_PATH;
+  const ogImage = absoluteAssetUrl(staticOgPath);
 
   const title: Metadata["title"] = absoluteTitle
     ? { absolute: absoluteTitle }
@@ -73,8 +72,8 @@ export function buildPageMetadata({
       url: ogImage,
       width: OG_IMAGE_SIZE.width,
       height: OG_IMAGE_SIZE.height,
-      alt: `${ogTitleForImage} — ${SEO_SITE_NAME}, ${SEO_DEFAULT_TAGLINE}`,
-      type: ogImagePath ? undefined : ("image/png" as const),
+      alt: `${ogTitleForImage} — ${SEO_SITE_NAME}, luftfoto ved solnedgang`,
+      type: staticOgPath.endsWith(".png") ? ("image/png" as const) : undefined,
     },
   ];
 
